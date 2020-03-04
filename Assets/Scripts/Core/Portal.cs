@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Portal : MonoBehaviour {
-    [Header ("Main Settings")]
+    [Header("Main Settings")]
+    public Portal lastPortal;
     public Portal linkedPortal;
     public MeshRenderer screen;
     public int recursionLimit = 5;
@@ -212,8 +213,10 @@ public class Portal : MonoBehaviour {
     void UpdateSliceParams (PortalTraveller traveller) {
         // Calculate slice normal
         int side = SideOfPortal (traveller.transform.position);
-        Vector3 sliceNormal = transform.forward * -side;
-        Vector3 cloneSliceNormal = linkedPortal.transform.forward * side;
+        //Vector3 sliceNormal = transform.forward * -side;
+        Vector3 sliceNormal = Vector3.zero;
+        //Vector3 cloneSliceNormal = linkedPortal.transform.forward * side;
+        Vector3 cloneSliceNormal = Vector3.zero;
 
         // Calculate slice centre
         Vector3 slicePos = transform.position;
